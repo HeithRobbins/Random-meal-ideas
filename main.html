@@ -6,23 +6,84 @@
 </head>
 <style>
 
+* {
+	box-sizing: border-box;
+}
 
+body {
+    background-color: antiquewhite;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	min-height: 100vh;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+	max-width: 100%;
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+h3 {
+	margin: 10px 0;
+}
+
+h5 {
+    display: flex;
+    justify-content: center;
+	margin: 10px 0;
+}
+
+li {
+	margin-bottom: 0;
+}
+
+.meal {
+	margin: 20px 0;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.videoWrapper {
+    display: flex;
+    justify-content: center;
+	position: relative;
+	padding-top: 25px;
+	height: 0;
+}
 
 
 </style>
 <body>
 <div class='container'>
-    <div class='center'>
-        <h1>
-            Getting Hungry?
-        </h1>
+    <h1>
+        Getting Hungry?
+    </h1>
+    <div class='center' id="hide-on-click">
         <h2> Get a meal ideas by clicking below</h2>
-        <button class="center-button" id="get_meal">Get Random recipe to make</button>
     </div>
+        <button class="center-button" id="get_meal" onclick="myFunction()">Get Random recipe to make</button>
     <div id="meal" class="row meal"></div>
 </div>
 </body>
 <script>
+
+    function myFunction() {
+            var x = document.getElementById("hide-on-click");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
 
     const get_meal_btn = document.getElementById('get_meal');
     const meal_container = document.getElementById('meal');
@@ -66,7 +127,7 @@
 		<div class="row">
 			<h3>Video Recipe</h3>
 			<div class="videoWrapper">
-				<iframe width="420" height="315"
+				<iframe width="540" height="415"
 				src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
 				</iframe>
 			</div>
